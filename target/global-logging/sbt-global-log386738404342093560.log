@@ -1,0 +1,58 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(~run, Some(8c662c3f-b6f5-4b22-93f2-c417f823893e), Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(__runWatch console0, None, Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(sbtStashOnFailure, None, Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(__preWatch console0, None, Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(run, None, Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Compile / run[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[31merror[0m] [0m[0morg.apache.spark.sql.catalyst.parser.ParseException: [0m
+[0m[[0m[31merror[0m] [0m[0mmismatched input 'INTO' expecting {<EOF>, ';'}(line 1, pos 11)[0m
+[0m[[0m[31merror[0m] [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m== SQL ==[0m
+[0m[[0m[31merror[0m] [0m[0mUSE INSERT INTO data1 SELECT * FROM temp_data[0m
+[0m[[0m[31merror[0m] [0m[0m-----------^^^[0m
+[0m[[0m[31merror[0m] [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.parser.ParseException.withCommand(ParseDriver.scala:265)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.parser.AbstractSqlParser.parse(ParseDriver.scala:126)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.execution.SparkSqlParser.parse(SparkSqlParser.scala:51)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.parser.AbstractSqlParser.parsePlan(ParseDriver.scala:77)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.SparkSession.$anonfun$sql$2(SparkSession.scala:616)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.QueryPlanningTracker.measurePhase(QueryPlanningTracker.scala:111)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.SparkSession.$anonfun$sql$1(SparkSession.scala:616)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:775)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.SparkSession.sql(SparkSession.scala:613)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.SQLContext.sql(SQLContext.scala:651)[0m
+[0m[[0m[31merror[0m] [0m[0m	at userLogin.showdata(userLogin.scala:149)[0m
+[0m[[0m[31merror[0m] [0m[0m	at userLogin.updatepassword(userLogin.scala:116)[0m
+[0m[[0m[31merror[0m] [0m[0m	at userLogin.login(userLogin.scala:68)[0m
+[0m[[0m[31merror[0m] [0m[0m	at adminOrUser.choice(adminOrUser.scala:32)[0m
+[0m[[0m[31merror[0m] [0m[0m	at project1$.main(project1.scala:50)[0m
+[0m[[0m[31merror[0m] [0m[0m	at project1.main(project1.scala)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.lang.reflect.Method.invoke(Method.java:498)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Run.invokeMain(Run.scala:143)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Run.execute$1(Run.scala:93)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Run.$anonfun$runWithLoader$5(Run.scala:120)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Run$.executeSuccess(Run.scala:186)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Run.runWithLoader(Run.scala:120)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Defaults$.$anonfun$bgRunTask$6(Defaults.scala:1983)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Defaults$.$anonfun$termWrapper$2(Defaults.scala:1922)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.util.Try$.apply(Try.scala:213)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.internal.BackgroundThreadPool$BackgroundRunnable.run(DefaultBackgroundJobService.scala:369)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.lang.Thread.run(Thread.java:748)[0m
+[0m[[0m[31merror[0m] [0m[0m(Compile / [31mrun[0m) org.apache.spark.sql.catalyst.parser.ParseException: [0m
+[0m[[0m[31merror[0m] [0m[0mmismatched input 'INTO' expecting {<EOF>, ';'}(line 1, pos 11)[0m
+[0m[[0m[31merror[0m] [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m== SQL ==[0m
+[0m[[0m[31merror[0m] [0m[0mUSE INSERT INTO data1 SELECT * FROM temp_data[0m
+[0m[[0m[31merror[0m] [0m[0m-----------^^^[0m
+[0m[[0m[31merror[0m] [0m[0mTotal time: 43 s, completed Jan 27, 2022 4:44:13 PM[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(resumeFromFailure, None, Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(sbtPopOnFailure, None, Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(__postWatch console0, None, Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(__waitWatch console0, None, Some(CommandSource(console0)))[0m

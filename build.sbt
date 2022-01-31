@@ -1,0 +1,9 @@
+name := "Project1Ex"
+version := "0.1"
+scalaVersion := "2.12.8"
+
+
+libraryDependencies += "org.apache.spark" %% "spark-hive" % "3.2.0" 
+libraryDependencies += "org.apache.spark" %% "spark-core" % "3.2.0"
+libraryDependencies += "mysql" % "mysql-connector-java" % "8.0.28"
+

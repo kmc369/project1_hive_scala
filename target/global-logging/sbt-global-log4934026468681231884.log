@@ -1,0 +1,36 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(__runWatch console0, Some(e22ca2d3-6058-48b0-a5f2-b96b374f2c82), Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(sbtStashOnFailure, None, Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(__preWatch console0, None, Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(run, None, Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Compile / run[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 1 Scala source to /Users/zenw/project1/target/scala-2.12/classes ...[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/zenw/project1/src/main/scala/userLogin.scala:141:39: unclosed string literal[0m
+[0m[[0m[31merror[0m] [0m[0m  SELECT * FROM ufo_808_part LIMIT 10;") //this is my partitioned table[0m
+[0m[[0m[31merror[0m] [0m[0m                                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/zenw/project1/src/main/scala/userLogin.scala:74:13: Unmatched closing brace '}' ignored here[0m
+[0m[[0m[31merror[0m] [0m[0m            }[0m
+[0m[[0m[31merror[0m] [0m[0m            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/zenw/project1/src/main/scala/userLogin.scala:76:10: ';' expected but 'catch' found.[0m
+[0m[[0m[31merror[0m] [0m[0m       } catch {[0m
+[0m[[0m[31merror[0m] [0m[0m         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/zenw/project1/src/main/scala/userLogin.scala:81:8: ';' expected but 'while' found.[0m
+[0m[[0m[31merror[0m] [0m[0m      }while(a)[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/zenw/project1/src/main/scala/userLogin.scala:90:4: 'while' expected but 'def' found.[0m
+[0m[[0m[31merror[0m] [0m[0m   def updatepassword(scan:Scanner): Unit = {[0m
+[0m[[0m[31merror[0m] [0m[0m   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/zenw/project1/src/main/scala/userLogin.scala:141:1: '(' expected.[0m
+[0m[[0m[31merror[0m] [0m[0m  SELECT * FROM ufo_808_part LIMIT 10;") //this is my partitioned table[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/zenw/project1/src/main/scala/userLogin.scala:141:36: ';' expected but integer literal found.[0m
+[0m[[0m[31merror[0m] [0m[0m  SELECT * FROM ufo_808_part LIMIT 10;") //this is my partitioned table[0m
+[0m[[0m[31merror[0m] [0m[0m                                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m7 errors found[0m
+[0m[[0m[31merror[0m] [0m[0m(Compile / [31mcompileIncremental[0m) Compilation failed[0m
+[0m[[0m[31merror[0m] [0m[0mTotal time: 1 s, completed Jan 29, 2022 3:16:07 PM[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(resumeFromFailure, None, Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(sbtPopOnFailure, None, Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(__postWatch console0, None, Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(resumeFromFailure, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(__waitWatch console0, None, None)[0m

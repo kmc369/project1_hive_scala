@@ -1,0 +1,7 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(~, Some(16c6697f-4e7b-41ef-b12b-2ebe784b611d), Some(CommandSource(console0)))[0m
+[0m[[0m[31merror[0m] [0m[0m~ usage:[0m
+[0m[[0m[31merror[0m] [0m[0m  ~ <command>   Executes the specified command whenever source files change.[0m
+[0m[[0m[31merror[0m] [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m~[0m
+[0m[[0m[31merror[0m] [0m[0m ^[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(shell, None, None)[0m
