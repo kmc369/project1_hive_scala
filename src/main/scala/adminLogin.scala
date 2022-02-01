@@ -20,7 +20,7 @@ class adminLogin {
           val driver = "com.mysql.cj.jdbc.Driver"
           val url = "jdbc:mysql://localhost:3306/project1"
           val username = "sqluser"
-          val password = "###" 
+          val password = "#####" 
           var connection:Connection = null
           connection = DriverManager.getConnection(url, username, password)
           val statement = connection.createStatement() 
@@ -39,26 +39,33 @@ class adminLogin {
   
   def login(scan:Scanner): Unit ={
         
-        println("-----------------------------------------------------")
-        println("-----------------------------------------------------")
-        println("-----------------------------------------------------")
-        println("***************UFO: REAL OR REAL?********************")
-        println("-----------------------------------------------------")
-        println("-----------------------------------------------------")
-        println("-----------------------------------------------------")
+        println("                                                                                             ")
+        println("                                                                                             ")
+        println("                                           CLASSIFIED                                        ")
+        println("**************************************UFO: REAL OR REAL?*******************************************")
+        println("                                                                                             ")
+        println("                                                                                             ")
+        println("                                                                                             ")
         
           var a = true;
      do{   
         
          try{
-
-         println("Enter Username: ");
+         println("")
+         println("ENTER USERNAME: ");
+         println("")
+         println("")
          var attemptedName = scan.nextLine();
-      
-         println("Enter Password ");
+        println("_______________")
+        println(" ")
+         println("ENTER PASSWORD: ");
+         println("")
+         println("")
          var attemptedPassword = scan.nextLine().toLowerCase()
-          
+         println("_______________")
+         println("")
           Class.forName(driver);
+
           val statement = connection.createStatement();
           
         

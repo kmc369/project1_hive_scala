@@ -26,7 +26,7 @@ class userLogin {
           val driver= "com.mysql.cj.jdbc.Driver";
           val url ="jdbc:mysql://localhost:3306/project1";
           val usN = "sqluser";
-          val pass = "###";
+          val pass = "####";
           val connection = DriverManager.getConnection(url,usN,pass);
           Class.forName(driver);
           val statement = connection.createStatement();
@@ -38,11 +38,19 @@ class userLogin {
     var a= true;   
  do{       
     try{
-        println("ENTER USERNAME")
+
+
+        println("")
+        println("ENTER USERNAME :")
+        println(" ")
+
         var attemptedName = scan.nextLine();
-        
+        println("_____________")
+        println(" ")
         println("ENTER PASSWORD")
+        println(" ")
         var attemptedPassword = scan.nextLine().toLowerCase()
+        println("_____________")
        
 
             
@@ -98,6 +106,7 @@ class userLogin {
 
     
           println("HAS IT BEEN MORE THAN 30 DAYS SINCE YOUR SIGN-UP DATE?")
+          println(" ")
           var timeElapse = scan.nextLine().toUpperCase()
         
        if(timeElapse=="YES"){
@@ -168,6 +177,7 @@ do{
      println("8) EXIT")
     
      var a = scan.nextInt() 
+     scan.nextLine()
      
      hiveCtx.sql("USE project1_hive_scala;")
    
@@ -263,6 +273,7 @@ do{
 if (a==7){
     sc.stop()
     b=false;
+  
     val goback = new adminOrUser().choice(scan)
 
 }
