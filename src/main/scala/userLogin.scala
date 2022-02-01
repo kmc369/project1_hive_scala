@@ -26,7 +26,7 @@ class userLogin {
           val driver= "com.mysql.cj.jdbc.Driver";
           val url ="jdbc:mysql://localhost:3306/project1";
           val usN = "sqluser";
-          val pass = "password";
+          val pass = "###";
           val connection = DriverManager.getConnection(url,usN,pass);
           Class.forName(driver);
           val statement = connection.createStatement();
@@ -144,7 +144,7 @@ def questions(hiveCtx:HiveContext, scan:Scanner): Unit = {
 
 var b = true;
 
-do{
+/*do{
       
      println("1) IN WHAT COUNTRY AM I MOST LIKELY TO SPOT A UFO?")
      println()
@@ -169,7 +169,7 @@ do{
     
      var a = scan.nextInt() 
 
- 
+   */
 
     val output = hiveCtx.read
            .format("csv")
@@ -180,11 +180,18 @@ do{
   
   
   output.createOrReplaceTempView("temp_data")
+
+        hiveCtx.sql("SET hive.exec.dynamic.partition.mode=nonstrict")
+                    hiveCtx.sql("SET hive.enforce.bucketing=false")
+                    hiveCtx.sql("SET hive.enforce.sorting=false")
+        hiveCtx.sql("USE project1_hive_scala;")
       
-      /*  hiveCtx.sql("USE project1_hive_scala;")
+
+       
+       // hiveCtx.sql("USE project1_hive_scala;")
   
     
-        
+        hiveCtx.sql("SET hive.enforce.sorting=false")
         
         hiveCtx.sql("CREATE TABLE IF NOT EXISTS ufo_data (datetime String, city STRING, state STRING, country string, shape STRING, duration_seconds String, duration_HoursMin String, comments String, date_posted STRING,latitude STRING, Longitude STRING) row format delimited fields terminated by ',' stored as textfile; ") 
         hiveCtx.sql("INSERT INTO ufo_data SELECT * FROM temp_data")
@@ -193,7 +200,7 @@ do{
      // questions.show()
 
       hiveCtx.sql("CREATE TABLE IF NOT EXISTS ufo_data_part(datetime String, city STRING, country string, shape STRING, duration_seconds String, duration_HoursMin String, comments String, date_posted STRING,latitude STRING, Longitude STRING) Partitioned by (state String) row format delimited fields terminated by ',' stored as textfile; ") 
-      hiveCtx.sql(" set hive.exec.dynamic.partition.mode=nonstrict;")
+     
       hiveCtx.sql("INSERT INTO ufo_data_part SELECT datetime String, city STRING, country string, shape STRING, duration_seconds String, duration_HoursMin String, comments String, date_posted STRING,latitude STRING, Longitude STRING , state String  FROM ufo_data;")
 
       val part = hiveCtx.sql("select * from ufo_data_part limit 10")
@@ -201,18 +208,18 @@ do{
 
     
       hiveCtx.sql("CREATE TABLE IF NOT EXISTS ufo_data_bucket(datetime String, city STRING, country string, shape STRING, duration_seconds String, duration_HoursMin String, comments String, date_posted STRING,latitude STRING, Longitude STRING) Partitioned by (state String) CLUSTERED BY (city) into 4 buckets row format delimited fields terminated by ',' stored as textfile; ") 
-      hiveCtx.sql("set hive.enforce.bucketing=true;")
-      //hiveCtx.sql("INSERT INTO ufo_data_bucket SELECT datetime String, city STRING, country string, shape STRING, duration_seconds String, duration_HoursMin String, comments String, date_posted STRING,latitude STRING, Longitude STRING , state String  FROM ufo_data;")
+      hiveCtx.sql("set hive.enforce.bucketing=false;")
+      hiveCtx.sql("INSERT INTO ufo_data_bucket SELECT datetime String, city STRING, country string, shape STRING, duration_seconds String, duration_HoursMin String, comments String, date_posted STRING,latitude STRING, Longitude STRING , state String  FROM ufo_data;")
       
-      //val buck = hiveCtx.sql("select * from ufo_data_bucket limit 10")
-      //buck.show()
-      */
+      val buck = hiveCtx.sql("select * from ufo_data_bucket limit 10")
+      buck.show()
+      
    
-      hiveCtx.sql("USE project1_hive;")
+      
    
    
    
-    if(a == 1){
+   /* if(a == 1){
        
       val country_max = hiveCtx.sql("SELECT count(country) as totalsighting, country from ufo_808_part group by country order by totalsighting desc limit 1;")
       country_max.show()
@@ -263,7 +270,7 @@ if(a==8){
   b =false;
 }
 
-}while(b) 
+}while(b) */
  
  //val goback = new adminOrUser().choice(scan)
  
