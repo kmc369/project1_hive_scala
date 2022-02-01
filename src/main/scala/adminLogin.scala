@@ -149,8 +149,8 @@ class adminLogin {
       }
       
       if(choice=="VIEW"){
-           hiveCtx.sql("USE project1_hive;")
-           val summary = hiveCtx.sql("SELECT * FROM ufo_808_part LIMIT 10;") //this is my partitioned table
+           hiveCtx.sql("USE project1_hive_scala;")
+           val summary = hiveCtx.sql("SELECT * FROM ufo_data_part LIMIT 10;") //this is my partitioned table
            summary.show()
       }
 

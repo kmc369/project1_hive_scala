@@ -144,7 +144,7 @@ def questions(hiveCtx:HiveContext, scan:Scanner): Unit = {
 
 var b = true;
 
-/*do{
+do{
       
      println("1) IN WHAT COUNTRY AM I MOST LIKELY TO SPOT A UFO?")
      println()
@@ -168,15 +168,16 @@ var b = true;
      println("8) EXIT")
     
      var a = scan.nextInt() 
-
-   */
-
+     
+     hiveCtx.sql("USE project1_hive_scala;")
+   
+/*
     val output = hiveCtx.read
            .format("csv")
            .option("inferSchema", "true")
            .option("header", "true")
            .load("/Users/zenw/ufo_data/complete.csv")
-         output.limit(1).show() 
+         //output.limit(1).show() 
   
   
   output.createOrReplaceTempView("temp_data")
@@ -188,10 +189,9 @@ var b = true;
       
 
        
-       // hiveCtx.sql("USE project1_hive_scala;")
+
   
-    
-        hiveCtx.sql("SET hive.enforce.sorting=false")
+   
         
         hiveCtx.sql("CREATE TABLE IF NOT EXISTS ufo_data (datetime String, city STRING, state STRING, country string, shape STRING, duration_seconds String, duration_HoursMin String, comments String, date_posted STRING,latitude STRING, Longitude STRING) row format delimited fields terminated by ',' stored as textfile; ") 
         hiveCtx.sql("INSERT INTO ufo_data SELECT * FROM temp_data")
@@ -208,53 +208,54 @@ var b = true;
 
     
       hiveCtx.sql("CREATE TABLE IF NOT EXISTS ufo_data_bucket(datetime String, city STRING, country string, shape STRING, duration_seconds String, duration_HoursMin String, comments String, date_posted STRING,latitude STRING, Longitude STRING) Partitioned by (state String) CLUSTERED BY (city) into 4 buckets row format delimited fields terminated by ',' stored as textfile; ") 
-      hiveCtx.sql("set hive.enforce.bucketing=false;")
+     
       hiveCtx.sql("INSERT INTO ufo_data_bucket SELECT datetime String, city STRING, country string, shape STRING, duration_seconds String, duration_HoursMin String, comments String, date_posted STRING,latitude STRING, Longitude STRING , state String  FROM ufo_data;")
       
       val buck = hiveCtx.sql("select * from ufo_data_bucket limit 10")
       buck.show()
       
-   
       
    
+      */
    
    
-   /* if(a == 1){
+   
+    if(a == 1){
        
-      val country_max = hiveCtx.sql("SELECT count(country) as totalsighting, country from ufo_808_part group by country order by totalsighting desc limit 1;")
+      val country_max = hiveCtx.sql("SELECT count(country) as totalsighting, country from ufo_data_bucket group by country order by totalsighting desc limit 1;")
       country_max.show()
 
     }
      if(a == 2){
        
-     val max_encounter = hiveCtx.sql("Select MAX(duration_seconds) as encountertime, state from ufo_808_part WHERE country = 'us' group by state order by  encountertime DESC limit 5;")
+     val max_encounter = hiveCtx.sql("Select MAX(duration_seconds) as encountertime, state from ufo_data_bucket WHERE country = 'us' group by state order by  encountertime DESC limit 5;")
       max_encounter.show()
 
       //WHAT IS THE LONGEST ENCOURTERS SOMEONE HAS HAD WITH A UFO IN THE UNITED STATES //help with this query
     }
      if(a == 3){
        
-      val ufo_shape = hiveCtx.sql("SELECT Count(shape) as totalshape ,shape  FROM ufo_808_part group by shape order by totalshape desc limit 5;")
+      val ufo_shape = hiveCtx.sql("SELECT Count(shape) as totalshape ,shape  FROM ufo_data_bucket group by shape order by totalshape desc limit 5;")
       ufo_shape.show();
 
       //WHAT IS THE MOST COMMON SHAPE OF UFO'S THAT ARE IDENTIFIED?
     
     }
     if (a ==4){
-     val city_shape = hiveCtx.sql("SELECT AVG(duration_seconds) FROM ufo_808_part WHERE state = 'nj';")
+     val city_shape = hiveCtx.sql("SELECT AVG(duration_seconds) FROM ufo_data_bucket WHERE state = 'nj';")
     city_shape.show()
     //WHAT IS THE AVERAGE TIME SOMEONE HAS SEEN A UFO IN NEW JERSEY
     }
     
   if (a==5){
-    val total_time = hiveCtx.sql("SELECT Min(shape) as possibleshape, shape from ufo_808_part group by shape order by possibleshape ASC limit 2; ")
+    val total_time = hiveCtx.sql("SELECT Min(shape) as possibleshape, shape from ufo_data_bucket group by shape order by possibleshape ASC limit 2; ")
     total_time.show();
     //WHAT SHAPE IS MOSTLY LIKELY TO ME CONFUSED AS A UFO?
   
   }
 
   if(a==6){
-    val least_likely = hiveCtx.sql("SELECT count(state) as leastlikely,state from ufo_808_part where country = 'us'  group by state order by leastlikely ASC limit 5; ")
+    val least_likely = hiveCtx.sql("SELECT count(state) as leastlikely,state from ufo_data_bucket where country = 'us'  group by state order by leastlikely ASC limit 5; ")
     least_likely.show()
  //WHAT state AM I LEAST LIKELY TO SPOT A UFO  
 }
@@ -270,9 +271,9 @@ if(a==8){
   b =false;
 }
 
-}while(b) */
+}while(b) 
  
- //val goback = new adminOrUser().choice(scan)
+
  
 
 } 
