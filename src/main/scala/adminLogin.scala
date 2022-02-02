@@ -82,9 +82,9 @@ class adminLogin {
               }
 
               if (attemptedPassword==x){
-                
+              
                 databaseInteraction(scan)
-                
+                a=false;
               }
             
              else{
@@ -93,15 +93,16 @@ class adminLogin {
              }
             
         } catch {
-            case e: BadUserException => println("PASSWORD INCORRECT PLEASE TRY AGAIN")
-            a=false;
+           case e: BadUserException => println("PASSWORD INCORRECT PLEASE TRY AGAIN")
+          
           }
         
          
         
-       } while(a!=true)
+       } while(a)
+       //databaseInteraction(scan)
   
-  }
+      }
 
 
 
@@ -146,6 +147,7 @@ class adminLogin {
       if (choice =="DELETE"){
           println(" ")
           println ("ENTER THE USERNAME OF THE PERSON YOU WANT TO DELETE")
+          println(" ")
           val userName = scan.nextLine()
           println(" ")
 
@@ -162,11 +164,12 @@ class adminLogin {
            hiveCtx.sql("USE project1_hive_scala;")
            val summary = hiveCtx.sql("SELECT * FROM ufo_data_part LIMIT 10;") //this is my partitioned table
            summary.show()
+           sc.stop()
       }
 
       if (choice == "EXIT") {
    
-        exitprogram(scan)
+        //exitprogram(scan)
         b= false;
       
       } 
@@ -180,13 +183,14 @@ class adminLogin {
     def exitprogram(scan:Scanner){
       var a = true;
       while(a){
-        println("*****************GOODBYE************e**")
+        
         a = false;
       }
-      exitprogram(scan)
-    }
- 
+       println("*****************GOODBYE************e**")
     
+    }
+    
+     
     
     
     

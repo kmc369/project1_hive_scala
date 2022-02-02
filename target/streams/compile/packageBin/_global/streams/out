@@ -1,17 +1,1 @@
-[0m[[0m[0mdebug[0m] [0m[0mPackaging /Users/zenw/project1/target/scala-2.12/project1ex_2.12-0.1.jar ...[0m
-[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
-[0m[[0m[0mdebug[0m] [0m[0m	BadUserException.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zenw/project1/target/scala-2.12/classes/BadUserException.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	project1$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zenw/project1/target/scala-2.12/classes/project1$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	userLogin.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zenw/project1/target/scala-2.12/classes/userLogin.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	adminOrUser.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zenw/project1/target/scala-2.12/classes/adminOrUser.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	project1.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zenw/project1/target/scala-2.12/classes/project1.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	adminLogin.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zenw/project1/target/scala-2.12/classes/adminLogin.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	BadUserException$$anonfun$$lessinit$greater$1.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zenw/project1/target/scala-2.12/classes/BadUserException$$anonfun$$lessinit$greater$1.class[0m
-[0m[[0m[0mdebug[0m] [0m[0mDone packaging.[0m
+[0m[[0m[0mdebug[0m] [0m[0mJar uptodate: /Users/zenw/project1/target/scala-2.12/project1ex_2.12-0.1.jar[0m

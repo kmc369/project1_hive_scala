@@ -26,7 +26,7 @@ class userLogin {
           val driver= "com.mysql.cj.jdbc.Driver";
           val url ="jdbc:mysql://localhost:3306/project1";
           val usN = "sqluser";
-          val pass = "#####";
+          val pass = "####";
           val connection = DriverManager.getConnection(url,usN,pass);
           Class.forName(driver);
           val statement = connection.createStatement();
@@ -74,6 +74,7 @@ class userLogin {
       
                  if (attemptedPassword==x){
                 updatepassword(scan)
+                a=false;
             }
           
            else{
@@ -83,10 +84,10 @@ class userLogin {
             
        } catch {
            case e: BadUserException => println("PASSWORD INCORRECT PLEASE TRY AGAIN")
-            a=false;
+           
        }
       
-      }while(a!=true)
+      }while(a)
   
     
 
@@ -136,20 +137,22 @@ class userLogin {
         val rs =statement.executeUpdate(query)
         
         questions(hiveCtx:HiveContext,scan)
+        b=false;
         }
 
         else if (timeElapse == "NO"){
          questions(hiveCtx:HiveContext,scan)
+         b=false;
       } 
     
        
     }catch {
       case e : BadUserException => println("PLEASE ENTER YES OR NO")
-      b= false
+     
     }
   
      
-  } while (b!=true)    
+  } while (b)    
   
   
   
@@ -239,7 +242,7 @@ do{
       
    
       */
-   
+    
    
    
     if(a == 1){
@@ -283,7 +286,7 @@ do{
 }
 
 if (a==7){
-    b=false;
+    //b=false;
     sc.stop()
     b=false;
   
