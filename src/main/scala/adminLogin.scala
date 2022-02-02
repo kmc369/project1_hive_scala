@@ -20,7 +20,7 @@ class adminLogin {
           val driver = "com.mysql.cj.jdbc.Driver"
           val url = "jdbc:mysql://localhost:3306/project1"
           val username = "sqluser"
-          val password = "#####" 
+          val password = "####" 
           var connection:Connection = null
           connection = DriverManager.getConnection(url, username, password)
           val statement = connection.createStatement() 
@@ -56,13 +56,13 @@ class adminLogin {
          println("")
          println("")
          var attemptedName = scan.nextLine();
-        println("_______________")
+        println("")
         println(" ")
          println("ENTER PASSWORD: ");
-         println("")
+     
          println("")
          var attemptedPassword = scan.nextLine().toLowerCase()
-         println("_______________")
+         
          println("")
           Class.forName(driver);
 
@@ -144,13 +144,16 @@ class adminLogin {
  
      
       if (choice =="DELETE"){
+          println(" ")
           println ("ENTER THE USERNAME OF THE PERSON YOU WANT TO DELETE")
           val userName = scan.nextLine()
+          println(" ")
 
           val query = ("DELETE FROM user_login WHERE user_name = '"+userName +"';")
           val rs =statement.executeUpdate(query)
-          println()
-          println("DELETE SUCCESSFUL")
+          println(" ")
+          println("******DELETE SUCCESSFUL*****")
+          
          
       
       }
@@ -161,16 +164,27 @@ class adminLogin {
            summary.show()
       }
 
-      if (choice =="EXIT") {
-        b=false;
+      if (choice == "EXIT") {
+   
+        exitprogram(scan)
+        b= false;
+      
       } 
 
     }while(b)
+    exitprogram(scan)
  }  
  
  
 
-    
+    def exitprogram(scan:Scanner){
+      var a = true;
+      while(a){
+        println("*****************GOODBYE************e**")
+        a = false;
+      }
+      exitprogram(scan)
+    }
  
     
     

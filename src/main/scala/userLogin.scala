@@ -26,7 +26,7 @@ class userLogin {
           val driver= "com.mysql.cj.jdbc.Driver";
           val url ="jdbc:mysql://localhost:3306/project1";
           val usN = "sqluser";
-          val pass = "####";
+          val pass = "#####";
           val connection = DriverManager.getConnection(url,usN,pass);
           Class.forName(driver);
           val statement = connection.createStatement();
@@ -45,12 +45,12 @@ class userLogin {
         println(" ")
 
         var attemptedName = scan.nextLine();
-        println("_____________")
+      
         println(" ")
         println("ENTER PASSWORD")
         println(" ")
         var attemptedPassword = scan.nextLine().toLowerCase()
-        println("_____________")
+        println(" ")
        
 
             
@@ -110,13 +110,25 @@ class userLogin {
           var timeElapse = scan.nextLine().toUpperCase()
         
        if(timeElapse=="YES"){
+           
+          println(" ")
           println("ENTER USERNAME")
+          println("")
           var userName= scan.nextLine()
+          println(" ")
 
+        
+        
           println("ENTER UPDATED USERNAME")
+          println("")
           var newUserName= scan.nextLine();
+          println("")
           println("ENTER UPDATED PASSWORD")
           var newPassword = scan.nextLine()
+          println(" ")
+
+          println("***************UPDATE SUCCESSFUL***************")
+          println(" ")
        
         //var query = ("UPDATE user_login SET user_password = ('" + newPassword+ "'), user_name = ('"+ newUserName +"') Where user_name = ('"+ userName + "');")
         var query = ("UPDATE user_login  SET user_name = ('"+newUserName+"'), user_password = ('"+newPassword+"') WHERE user_name = ('"+userName+"');")
@@ -271,6 +283,7 @@ do{
 }
 
 if (a==7){
+    b=false;
     sc.stop()
     b=false;
   
@@ -281,9 +294,9 @@ if(a==8){
   
   b =false;
 }
-
+sc.stop()
 }while(b) 
- 
+
 
  
 
