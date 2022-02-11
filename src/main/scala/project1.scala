@@ -7,7 +7,7 @@ import org.apache.spark.sql.SQLContext
 
 
 
-
+import org.apache.spark.sql.SparkSession
 import java.util.Scanner
 import java.sql.SQLException;
 import java.sql.Connection;
@@ -19,6 +19,15 @@ object project1  {
   
      def main(args: Array[String]): Unit = {
           
+         /*     val spark = SparkSession.builder
+          .master("local[*]")
+          .appName("Spark Word Count")
+          .getOrCreate()
+          */
+     
+
+
+
 
           
        System.setSecurityManager(null)
@@ -37,7 +46,7 @@ object project1  {
           val driver = "com.mysql.cj.jdbc.Driver"
           val url = "jdbc:mysql://localhost:3306/project1"
           val username = "sqluser"
-          val password = "#####" 
+          val password = "####" 
           var connection:Connection = null
           connection = DriverManager.getConnection(url, username, password)
           val statement = connection.createStatement()
@@ -46,8 +55,7 @@ object project1  {
       
           var scan = new Scanner(System.in)
 
-          var w = new adminOrUser();
-          var x = w.choice(scan)
+          var w = new adminOrUser().choice(scan)
 
      
      

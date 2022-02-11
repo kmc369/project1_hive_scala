@@ -4,6 +4,7 @@ class userLogin {
           import org.apache.spark.SparkContext
           import org.apache.spark.SparkContext._
           import org.apache.spark.sql.SQLContext
+          import org.apache.spark.sql.SparkSession
           
 
           System.setSecurityManager(null)
@@ -15,6 +16,13 @@ class userLogin {
             sc.setLogLevel("ERROR")
          val hiveCtx = new HiveContext(sc)
             import hiveCtx.implicits._
+
+       /* val spark = SparkSession.builder
+          .master("local[*]")
+          .appName("Spark Word Count")
+          .getOrCreate()
+          sc.stop() */
+
           
           
           import java.util.Scanner
@@ -26,7 +34,7 @@ class userLogin {
           val driver= "com.mysql.cj.jdbc.Driver";
           val url ="jdbc:mysql://localhost:3306/project1";
           val usN = "sqluser";
-          val pass = "####";
+          val pass = "#####";
           val connection = DriverManager.getConnection(url,usN,pass);
           Class.forName(driver);
           val statement = connection.createStatement();
@@ -242,7 +250,8 @@ do{
       
    
       */
-    
+  
+
    
    
     if(a == 1){
@@ -297,6 +306,7 @@ if(a==8){
   
   b =false;
 }
+
 sc.stop()
 }while(b) 
 

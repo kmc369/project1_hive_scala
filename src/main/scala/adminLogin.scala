@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.DriverManager;
 
-
+import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.hive.HiveContext
 import org.apache.spark.SparkConf
 import org.apache.spark.SparkContext
@@ -20,7 +20,7 @@ class adminLogin {
           val driver = "com.mysql.cj.jdbc.Driver"
           val url = "jdbc:mysql://localhost:3306/project1"
           val username = "sqluser"
-          val password = "####" 
+          val password = "#####" 
           var connection:Connection = null
           connection = DriverManager.getConnection(url, username, password)
           val statement = connection.createStatement() 
@@ -35,7 +35,11 @@ class adminLogin {
          val hiveCtx = new HiveContext(sc)
             import hiveCtx.implicits._
   
-  
+
+                  val spark = SparkSession.builder
+          .master("local[*]")
+          .appName("Spark Word Count")
+          .getOrCreate()
   
   def login(scan:Scanner): Unit ={
         
